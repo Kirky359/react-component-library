@@ -39,20 +39,20 @@ export const Toast: React.FC<ToastProps> = ({
     }, 300);
   };
 
-
   const { icon: Icon, bg, border, text, iconColor } = TOAST_CONFIG[type];
 
   if (!isVisible) return null;
 
   return (
     <div
-      className={`fixed bottom-4 right-4 z-50 transition-all duration-300 ${
-        isExiting ? 'opacity-0 translate-x-full' : 'opacity-100 translate-x-0'
+      className={`relative transition-all duration-300 ${
+        isExiting ? "opacity-0 translate-x-full" : "opacity-100 translate-x-0"
       }`}
       role="alert"
-      aria-live="polite"
     >
-      <div className={`flex items-start gap-3 p-4 rounded-lg border-l-4 shadow-lg ${bg} ${border} min-w-80 max-w-md`}>
+      <div
+        className={`flex items-start gap-3 p-4 rounded-lg border-l-4 shadow-lg ${bg} ${border} min-w-80 max-w-md`}
+      >
         <Icon className={iconColor} size={20} aria-hidden="true" />
         <p className={`flex-1 text-sm font-medium ${text}`}>{message}</p>
         {showCloseButton && (

@@ -72,7 +72,7 @@ export const SidebarMenu: React.FC<SidebarMenuProps> = ({
     <>
       {isOpen && (
         <div
-          className="fixed inset-0 z-40 transition-opacity"
+          className="fixed inset-0 z-40 bg-black/50 transition-opacity"
           onClick={onClose}
           aria-hidden="true"
         />
