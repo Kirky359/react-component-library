@@ -1,6 +1,5 @@
 import { Eye, EyeOff, X } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect, useId } from 'react';
 
 export interface InputProps {
   type?: 'text' | 'password' | 'email' | 'number';
@@ -27,6 +26,7 @@ export const Input: React.FC<InputProps> = ({
 }) => {
   const [value, setValue] = useState(controlledValue || '');
   const [showPassword, setShowPassword] = useState(false);
+  const inputId = useId();
   const inputType = type === 'password' && showPassword ? 'text' : type;
 
   useEffect(() => {
@@ -49,12 +49,13 @@ export const Input: React.FC<InputProps> = ({
   return (
     <div className={`w-full max-w-sm ${className}`}>
       {label && (
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor={inputId} className="block text-sm font-medium text-gray-700 mb-1">
           {label}
         </label>
       )}
       <div className="relative">
         <input
+          id={inputId}
           type={inputType}
           value={value}
           onChange={handleChange}
@@ -71,7 +72,8 @@ export const Input: React.FC<InputProps> = ({
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="p-1 text-gray-500 hover:text-gray-700 transition-colors"
+              disabled={disabled}
+              className={`p-1 transition-colors ${disabled ? 'opacity-50 cursor-not-allowed' : 'text-gray-500 hover:text-gray-700'}`}
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
@@ -90,7 +92,7 @@ export const Input: React.FC<InputProps> = ({
         </div>
       </div>
       {error && (
-        <p className="mt-1 text-sm text-red-600">{error}</p>
+        <p className="mt-1 text-sm text-red-600" role="alert">{error}</p>
       )}
     </div>
   );

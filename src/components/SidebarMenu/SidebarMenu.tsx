@@ -43,7 +43,7 @@ export const SidebarMenu: React.FC<SidebarMenuProps> = ({
           style={{ paddingLeft: `${16 + level * 16}px` }}
         >
           <div className="flex items-center gap-3">
-            {item.icon}
+            {item.icon && <span aria-hidden="true">{item.icon}</span>}
             <span className="text-gray-800 font-medium">{item.label}</span>
           </div>
           {hasChildren && (

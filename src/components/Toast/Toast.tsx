@@ -22,11 +22,8 @@ export const Toast: React.FC<ToastProps> = ({
 
   useEffect(() => {
     setIsVisible(true);
-    
     if (duration > 0) {
-      const timer = setTimeout(() => {
-        handleClose();
-      }, duration);
+      const timer = setTimeout(() => handleClose(), duration);
       return () => clearTimeout(timer);
     }
   }, [duration]);
@@ -50,9 +47,7 @@ export const Toast: React.FC<ToastProps> = ({
       }`}
       role="alert"
     >
-      <div
-        className={`flex items-start gap-3 p-4 rounded-lg border-l-4 shadow-lg ${bg} ${border} min-w-80 max-w-md`}
-      >
+      <div className={`flex items-start gap-3 p-4 rounded-lg border-l-4 shadow-lg ${bg} ${border} min-w-80 max-w-md`}>
         <Icon className={iconColor} size={20} aria-hidden="true" />
         <p className={`flex-1 text-sm font-medium ${text}`}>{message}</p>
         {showCloseButton && (
