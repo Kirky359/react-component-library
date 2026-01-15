@@ -4,8 +4,7 @@ A professional UI component library built with **React**, **TypeScript**, and **
 
 ## 🚀 Live Preview
 
-You can view the deployed version of the project here:
-
+Deployed version of storybook: https://kirky359.github.io/react-component-library/
 ---
 
 ## 📦 Components
@@ -20,7 +19,7 @@ The library includes three core components developed from scratch:
 
 ## 🛠 Tech Stack
 
-* **React 18** (Next.js App Router)
+* **React 19** (Next.js App Router)
 * **TypeScript** for strict type safety
 * **Tailwind CSS v4** for modern utility-first styling
 * **Storybook 10** for component documentation and isolated testing
@@ -40,7 +39,7 @@ Ensure you have **Node.js** and **npm** (or yarn) installed on your machine.
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/your-username/react-component-library.git
+git clone https://github.com/kirky359/react-component-library.git
 
 ```
 
@@ -87,9 +86,9 @@ npm run storybook
 
 
 ### 4. Storybook Dashboard
-![alt text](./public/screenshots/storybook_input.png)
-![alt text](./public/screenshots/storybook_menu.png)
-![alt text](./public/screenshots/storybook_messages.png)
+![StoryBook input test](./public/screenshots/storybook_input.png)
+![StoryBook menu test](./public/screenshots/storybook_menu.png)
+![StoryBook toast test](./public/screenshots/storybook_toast.png)
 
 ---
 
